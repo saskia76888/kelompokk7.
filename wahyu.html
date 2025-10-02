@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biodata Modern</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        /* Back to Top Button */
+        #backToTop {
+          display: none;
+          position: fixed;
+          bottom: 32px;
+          right: 32px;
+          z-index: 100;
+          background: #4e54c8;
+          color: #fff;
+          border: none;
+          border-radius: 50%;
+          width: 48px;
+          height: 48px;
+          font-size: 24px;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+          cursor: pointer;
+          transition: background 0.3s, transform 0.3s;
+        }
+        #backToTop:hover {
+          background: #232b3a;
+          transform: scale(1.1);
+        }
+        body.dark-mode #backToTop {
+          background: #232b3a;
+          color: #b3b8ff;
+        }
+        body.dark-mode #backToTop:hover {
+          background: #4e54c8;
+          color: #fff;
+        }
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f0f2f5;
+        color: #333;
+        overflow-x: hidden;
+      }
+
+      body.dark-mode {
+        background: #181a1b;
+        color: #e0e0e0;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        animation: fadeUp 1s ease-in-out;
+      }
+
+      body.dark-mode .container {
+        background: #23272f;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      header {
+        background: linear-gradient(135deg, #4e54c8, #8f94fb);
+        color: white;
+        position: relative;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      body.dark-mode header {
+        background: linear-gradient(135deg, #23272f, #4e54c8);
+      }
+
+      header img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 4px solid #fff;
+        margin-bottom: 15px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+
+      header img:hover {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 28px;
+        animation: fadeIn 2s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      header p {
+        font-size: 16px;
+        margin: 5px 0 0;
+        opacity: 0;
+        animation: fadeIn 2s ease 0.5s forwards;
+      }
+
+      section {
+        padding: 30px 40px;
+        border-bottom: 1px solid #eee;
+        transition: background 0.3s ease;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+      }
+
+      body.dark-mode section {
+        background: #23272f;
+        border-bottom: 1px solid #333;
+      }
+
+      section.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      section:hover {
+        background: #f9f9ff;
+      }
+
+      body.dark-mode section:hover {
+        background: #232b3a;
+      }
+
+      section:last-child {
+        border-bottom: none;
+      }
+
+      h2 {
+        margin-top: 0;
+        color: #4e54c8;
+        font-size: 22px;
+        border-left: 4px solid #8f94fb;
+        padding-left: 10px;
+        position: relative;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0%;
+        height: 3px;
+        background: #8f94fb;
+        transition: width 0.4s ease;
+      }
+
+      section:hover h2::after {
+        width: 100%;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      ul li {
+        margin-bottom: 10px;
+        padding: 10px;
+        background: #f7f7f7;
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      body.dark-mode ul li {
+        background: #232b3a;
+      }
+
+      ul li:hover {
+        transform: translateX(10px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .skills span {
+        display: inline-block;
+        margin: 6px;
+        padding: 8px 14px;
+        background: #e1e4ff;
+        color: #4e54c8;
+        border-radius: 20px;
+        font-size: 14px;
+        transition: background 0.3s ease, transform 0.3s ease;
+      }
+
+      body.dark-mode .skills span {
+        background: #353b4a;
+        color: #b3b8ff;
+      }
+
+      .skills span:hover {
+        background: #4e54c8;
+        color: white;
+        transform: scale(1.1);
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: #f7f7f7;
+        font-size: 14px;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+      }
+
+      body.dark-mode footer {
+        background: #232b3a;
+        color: #b3b8ff;
+      }
+
+      /* Toggle Button */
+      .toggle-darkmode {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: #fff;
+        color: #4e54c8;
+        border: none;
+        border-radius: 20px;
+        padding: 8px 18px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: background 0.3s, color 0.3s;
+        z-index: 10;
+      }
+      .toggle-darkmode:hover {
+        background: #4e54c8;
+        color: #fff;
+      }
+      body.dark-mode .toggle-darkmode {
+        background: #232b3a;
+        color: #b3b8ff;
+        border: 1px solid #4e54c8;
+      }
+      body.dark-mode .toggle-darkmode:hover {
+        background: #4e54c8;
+        color: #fff;
+      }
+
+      footer.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <button class="toggle-darkmode" id="toggleDark">🌙 Mode Gelap</button>
+        <button id="backToTop" title="Kembali ke Atas">↑</button>
+        <img src="123.jpg" alt="Foto Profil" />
+        <h1 id="typingName"></h1>
+        <p id="typingDesc"></p>
+      </header>
+
+      <section>
+        <h2>Tentang Saya</h2>
+        <p>
+          Saya adalah seorang pelajar mahasiswa yang tertarik dengan dunia
+          teknologi, desain, dan pengembangan web modern. Senang belajar hal
+          baru dan bekerja dalam tim.
+        </p>
+      </section>
+
+      <section>
+        <h2>Pendidikan</h2>
+        <ul>
+          <li>SMKN 1 Garut - Teknik Informatika (2025- Sekarang)</li>
+          <li>
+            SMKN 1 Garut - Jurusan PPL(Pengembangan Perangkat Lunak Dan Game)
+            (2024 - 2027)
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Keahlian</h2>
+        <div class="skills">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>Mancing</span>
+          <span>Gapleh</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Kontak</h2>
+        <p style="display: flex; align-items: center; gap: 8px">
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/gmail.svg"
+            alt="Email"
+            style="
+              width: 22px;
+              height: 22px;
+              vertical-align: middle;
+              filter: invert(0.4) sepia(1) saturate(5) hue-rotate(330deg);
+            "
+          />
+          Tutocrooz@gmail.com
+        </p>
+        <p style="display: flex; align-items: center; gap: 8px">
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg"
+            alt="Telepon"
+            style="
+              width: 22px;
+              height: 22px;
+              vertical-align: middle;
+              filter: invert(0.4) sepia(1) saturate(5) hue-rotate(90deg);
+            "
+          />
+          089529969093
+        </p>
+        <p style="display: flex; align-items: center; gap: 8px">
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg"
+            alt="Instagram"
+            style="
+              width: 22px;
+              height: 22px;
+              vertical-align: middle;
+              filter: invert(0.4) sepia(1) saturate(5) hue-rotate(-30deg);
+            "
+          />
+          @Itx.Whyu
+        </p>
+      </section>
+
+      <footer>&copy; 2025 Biodata Modern | Dibuat dengan ❤️</footer>
+    </div>
+
+    <script>
+      // Typing effect for header name (looping)
+      const nameText = "Wahyu Mardiansyah";
+      const nameElem = document.getElementById("typingName");
+      let nameCharIdx = 0;
+      let nameIsDeleting = false;
+      let nameTypingDelay = 110;
+      let nameErasingDelay = 60;
+      let nameNextDelay = 1000;
+
+      function typeNameEffect() {
+        if (!nameIsDeleting) {
+          nameElem.textContent = nameText.substring(0, nameCharIdx + 1);
+          nameCharIdx++;
+          if (nameCharIdx === nameText.length) {
+            nameIsDeleting = true;
+            setTimeout(typeNameEffect, nameNextDelay);
+          } else {
+            setTimeout(typeNameEffect, nameTypingDelay);
+          }
+        } else {
+          nameElem.textContent = nameText.substring(0, nameCharIdx - 1);
+          nameCharIdx--;
+          if (nameCharIdx === 0) {
+            nameIsDeleting = false;
+            setTimeout(typeNameEffect, nameTypingDelay);
+          } else {
+            setTimeout(typeNameEffect, nameErasingDelay);
+          }
+        }
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        typeNameEffect();
+      });
+
+      // Typing effect for header description
+      const typingTexts = [
+        "Web Developer",
+        "Designer",
+        "UI/UX Enthusiast",
+        "Pelajar Informatika",
+      ];
+      const typingElem = document.getElementById("typingDesc");
+      let typingIdx = 0;
+      let charIdx = 0;
+      let isDeleting = false;
+      let typingDelay = 90;
+      let erasingDelay = 50;
+      let nextTextDelay = 1200;
+
+      function typeEffect() {
+        const currentText = typingTexts[typingIdx];
+        if (!isDeleting) {
+          typingElem.textContent = currentText.substring(0, charIdx + 1);
+          charIdx++;
+          if (charIdx === currentText.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, nextTextDelay);
+          } else {
+            setTimeout(typeEffect, typingDelay);
+          }
+        } else {
+          typingElem.textContent = currentText.substring(0, charIdx - 1);
+          charIdx--;
+          if (charIdx === 0) {
+            isDeleting = false;
+            typingIdx = (typingIdx + 1) % typingTexts.length;
+            setTimeout(typeEffect, typingDelay);
+          } else {
+            setTimeout(typeEffect, erasingDelay);
+          }
+        }
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        typeEffect();
+      });
+      // Animasi scroll reveal
+      const reveals = document.querySelectorAll("section, footer");
+
+      window.addEventListener("scroll", () => {
+        for (let i = 0; i < reveals.length; i++) {
+          let windowHeight = window.innerHeight;
+          let elementTop = reveals[i].getBoundingClientRect().top;
+          let elementVisible = 100;
+
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("show");
+          }
+        }
+      });
+
+      // Back to Top button logic
+      const backToTopBtn = document.getElementById("backToTop");
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 200) {
+          backToTopBtn.style.display = "block";
+        } else {
+          backToTopBtn.style.display = "none";
+        }
+      });
+      backToTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Dark mode toggle
+      const toggleBtn = document.getElementById("toggleDark");
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      const savedMode = localStorage.getItem("darkMode");
+      if (savedMode === "dark" || (!savedMode && prefersDark)) {
+        document.body.classList.add("dark-mode");
+        toggleBtn.textContent = "☀️ Mode Terang";
+      }
+      toggleBtn.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+        toggleBtn.textContent = isDark ? "☀️ Mode Terang" : "🌙 Mode Gelap";
+        localStorage.setItem("darkMode", isDark ? "dark" : "light");
+      });
+    </script>
+  </body>
+</html>
