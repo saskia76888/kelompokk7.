@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Biodata Diri - Natasya Wildina</title>
+    <style>
+      :root {
+        --accent: #2563eb;
+        --muted: #666;
+      }
+      body {
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        background: #f3f4f6;
+        margin: 0;
+        padding: 32px;
+      }
+      .wrap {
+        max-width: 920px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 20px;
+      }
+      .card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 18px;
+        box-shadow: 0 6px 18px rgba(12, 14, 20, 0.06);
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: 18px;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        font-size: 13px;
+        margin-top: 10px;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="file"],
+      textarea,
+      select {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        margin-top: 6px;
+        font-size: 14px;
+      }
+      textarea {
+        min-height: 80px;
+        resize: vertical;
+      }
+      .row {
+        display: flex;
+        gap: 12px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: 0;
+        background: var(--accent);
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .btn.ghost {
+        background: transparent;
+        color: var(--accent);
+        border: 1px solid #dbeafe;
+      }
+      /* preview */
+      .preview {
+        padding: 18px;
+      }
+      .avatar {
+        width: 88px;
+        height: 88px;
+        border-radius: 12px;
+        background: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: var(--muted);
+        font-size: 12px;
+        overflow: hidden;
+      }
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .name {
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 6px;
+      }
+      .muted {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      dl {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 6px 12px;
+        margin-top: 12px;
+      }
+      @media (max-width: 900px) {
+        .wrap {
+          grid-template-columns: 1fr;
+        }
+        .preview {
+          order: -1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <h1>Form Biodata (Sudah Terisi)</h1>
+        <p class="muted">Ubah data bila perlu lalu tekan <strong>Perbarui Preview</strong>.</p>
+
+        <label>Upload Foto</label>
+        <input id="foto" type="file" accept="image/*" />
+
+        <label>Nama Lengkap</label>
+        <input id="nama" type="text" value="Natasya Wildina" />
+
+        <label>Nama Panggilan</label>
+        <input id="panggilan" type="text" value="Natasya" />
+
+        <div class="row">
+          <div style="flex: 1">
+            <label>Tempat Lahir</label>
+            <input id="tempat" type="text" value="Garut" />
+          </div>
+          <div style="width: 160px">
+            <label>Tanggal Lahir</label>
+            <input id="tanggal" type="text" value="23-08-2009" />
+          </div>
+        </div>
+
+        <label>Jenis Kelamin</label>
+        <select id="jk">
+          <option value="Perempuan" selected>Perempuan</option>
+          <option>Laki-laki</option>
+          <option>Lainnya</option>
+        </select>
+
+        <label>Alamat</label>
+        <textarea id="alamat">Jl. Samarang</textarea>
+
+        <label>Kewarganegaraan</label>
+        <input id="warga" type="text" value="Indonesia" />
+
+        <label>Telepon / HP</label>
+        <input id="tel" type="tel" value="089670722444" />
+
+        <label>Email</label>
+        <input id="email" type="email" value="natasyawildina7@gmail.com" />
+
+        <div style="margin-top: 14px; display: flex; gap: 8px">
+          <button class="btn" id="updateBtn">Perbarui Preview</button>
+          <button class="btn ghost" id="clearBtn">Bersihkan</button>
+          <button class="btn" id="printBtn" style="margin-left: auto">Cetak / Simpan PDF</button>
+        </div>
+      </div>
+
+      <div class="card preview" id="previewCard">
+        <div style="display: flex; gap: 12px; align-items: center">
+          <div class="avatar" id="avatar"><img src="natasya.jpg" alt="Foto" /></div>
+          <div>
+            <div class="name" id="previewNama">Nama Lengkap</div>
+            <div class="muted" id="previewPanggilan">(Nama panggilan)</div>
+          </div>
+        </div>
+
+        <dl>
+          <dt class="muted">TTL</dt>
+          <dd id="previewTTL">-</dd>
+          <dt class="muted">Jenis Kelamin</dt>
+          <dd id="previewJK">-</dd>
+          <dt class="muted">Alamat</dt>
+          <dd id="previewAlamat">-</dd>
+          <dt class="muted">Kewarganegaraan</dt>
+          <dd id="previewWarga">-</dd>
+          <dt class="muted">HP / Email</dt>
+          <dd id="previewContact">-</dd>
+        </dl>
+      </div>
+    </div>
+
+    <script>
+      const g = (id) => document.getElementById(id);
+
+      function updatePreview() {
+        const nama = g("nama").value.trim();
+        const panggilan = g("panggilan").value.trim();
+        const tempat = g("tempat").value.trim();
+        const tanggal = g("tanggal").value.trim();
+        const jk = g("jk").value;
+        const alamat = g("alamat").value.trim();
+        const warga = g("warga").value.trim();
+        const tel = g("tel").value.trim();
+        const email = g("email").value.trim();
+
+        g("previewNama").textContent = nama || "Nama Lengkap";
+        g("previewPanggilan").textContent = panggilan ? `(${panggilan})` : "(Nama panggilan)";
+        g("previewTTL").textContent = (tempat || "-") + (tanggal ? ", " + tanggal : "");
+        g("previewJK").textContent = jk || "-";
+        g("previewAlamat").textContent = alamat || "-";
+        g("previewWarga").textContent = warga || "-";
+        g("previewContact").textContent = (tel || "-") + (email ? " • " + email : "");
+      }
+
+      // upload foto manual
+      g("foto").addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (ev) {
+            g("avatar").innerHTML = `<img src="${ev.target.result}" alt="Foto">`;
+          };
+          reader.readAsDataURL(file);
+        } else {
+          g("avatar").innerHTML = `<img src="natasya.jpg" alt="Foto">`;
+        }
+      });
+
+      g("updateBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        updatePreview();
+      });
+
+      g("clearBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        ["nama", "panggilan", "tempat", "tanggal", "alamat", "warga", "tel", "email"].forEach((id) => (g(id).value = ""));
+        g("jk").selectedIndex = 0;
+        g("avatar").innerHTML = `<img src="natasya.jpg" alt="Foto">`;
+        g("foto").value = "";
+        updatePreview();
+      });
+
+      g("printBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        const w = window.open("", "_blank");
+        const html =
+          `<!doctype html><html><head><meta charset="utf-8"><title>Biodata - ${g("nama").value}</title>
+          <style>body{font-family:Arial,Helvetica,sans-serif;padding:24px}
+          .card{max-width:700px;border:1px solid #ddd;padding:18px;border-radius:8px}
+          img{max-width:100px;border-radius:8px}</style></head><body>` +
+          document.getElementById("previewCard").outerHTML +
+          `</body></html>`;
+        w.document.write(html);
+        w.document.close();
+        w.focus();
+        setTimeout(() => w.print(), 350);
+      });
+
+      // initialize
+      updatePreview();
+    </script>
+  </body>
+</html>

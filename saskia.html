@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Biodata Saskia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .card {
+        background: white;
+        padding: 35px 45px;
+        border-radius: 16px;
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        max-width: 500px;
+        width: 100%;
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .profile-img {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto 20px;
+        border: 4px solid #4dd0e1;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+        margin: 10px 0 5px;
+        font-weight: 600;
+        font-size: 22px;
+        color: #2c3e50;
+      }
+
+      p.role {
+        text-align: center;
+        color: #78909c;
+        margin-top: 0;
+        margin-bottom: 25px;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .info {
+        font-size: 15px;
+        color: #444;
+        line-height: 1.8;
+      }
+
+      .info span {
+        font-weight: 600;
+        color: #37474f;
+      }
+
+      footer {
+        position: absolute;
+        bottom: 10px;
+        font-size: 12px;
+        color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img src="saskia.jpg" alt="Foto Saskia" class="profile-img" />
+      <h2>Saskia Cahaya Islami</h2>
+      <p class="role">Pelajar</p>
+
+      <div class="info">
+        <p><span>Nama:</span> Saskia Cahaya Islami</p>
+        <p><span>Tempat, Tanggal Lahir:</span> Garut, 7 April 2009</p>
+        <p><span>Jenis Kelamin:</span> Perempuan</p>
+        <p><span>Alamat:</span> Jl. Cipanas, Garut</p>
+        <p><span>Email:</span> saskiacahaya.i@gmail.com</p>
+        <p><span>No. HP:</span> 0821-2126-6509</p>
+        <p><span>Hobi:</span> Menulis</p>
+      </div>
+    </div>
+  </body>
+</html>
