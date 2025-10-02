@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biodata Diri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="biodata-card">
+    <img src="foto.jpg" alt="Foto Profil">
+    <h2>Biodata Diri</h2>
+    <table>
+      <tr>
+        <td class="label">Nama</td>
+        <td>:Fauzan Abdillah</td>
+      </tr>
+      <tr>
+        <td class="label">Tempat, Tgl Lahir</td>
+        <td>:Garut, 08 Februari 2009</td>
+      </tr>
+      <tr>
+        <td class="label">Jenis Kelamin</td>
+        <td>:Laki-laki</td>
+      </tr>
+      <tr>
+        <td class="label">Alamat</td>
+        <td>:Bayongbong, Garut</td>
+      </tr>
+      <tr>
+        <td class="label">Agama</td>
+        <td>:Islam</td>
+      </tr>
+      <tr>
+        <td class="label">Email</td>
+        <td>:game.fauzann@gmail.com</td>
+      </tr>
+      <tr>
+        <td class="label">Hobi</td>
+        <td>:Main ML</td>
+      </tr>
+      <tr>
+        <td class="label">Cita-cita</td>
+        <td>:Programmer/Pro Player</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #74ebd5 0%, #b184d6 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.biodata-card {
+    background-color: rgba(255, 255, 255, 0.308); /* transparan */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* shadow lebih nyata */
+    text-align: center;
+    width: 300px;
+    backdrop-filter: blur(8px); /* blur di belakang card */
+}
+
+.biodata-card img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid rgba(240, 239, 239, 0.5);
+}
+
+.biodata-card h2 {
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+.biodata-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.biodata-card td {
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+    color: #fff;
+}
+
+.biodata-card .label {
+    font-weight: bold;
+    width: 40%;
+    color: #fff;
+}
